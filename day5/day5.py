@@ -1,5 +1,22 @@
 import timeit
 
+abdiwoli_setup = '''
+from __main__ import abdiwoli_day5
+'''
+
+def abdiwoli_day5(r, a):
+    a,l = [a[i] for i in r if i in a],r.values()
+    z = [i//v for i,v in zip(a,l)]
+    return 0 if len(l)!= len(a) else min(z)
+        
+        
+           
+TEST_CODE_abdiwoli = '''
+result = abdiwoli_day5({"flour": 500, "sugar": 200, "eggs": 1}, {"flour": 1200, "sugar": 1200, "eggs": 5, "milk": 200})
+'''              
+        
+
+
 killian_setup = '''
 from __main__ import killian_day5
 '''
@@ -189,7 +206,7 @@ def Oleksandra_Chmel_day5(recipe, available):
 TEST_CODE_Oleksandra_Chmel = '''
 result = Oleksandra_Chmel_day5({"flour": 500, "sugar": 200, "eggs": 1}, {"flour": 1200, "sugar": 1200, "eggs": 5, "milk": 200})
 '''
-
+print("Time for abdiwoli test code: " + str(timeit.timeit(stmt=TEST_CODE_abdiwoli, setup=abdiwoli_setup, number=100000)) + " seconds")
 print("Time for killian test code: " + str(timeit.timeit(stmt=TEST_CODE_killian, setup=killian_setup, number=100000)) + " seconds")
 print("Time for ccquiel test code: " + str(timeit.timeit(stmt=TEST_CODE_ccquiel, setup=ccquiel_setup, number=100000)) + " seconds")
 print("Time for vijaya_lakshmi test code: " + str(timeit.timeit(stmt=TEST_CODE_vijaya_lakshmi, setup=vijaya_lakshmi_setup, number=100000)) + " seconds")
