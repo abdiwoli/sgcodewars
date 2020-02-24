@@ -1,5 +1,16 @@
 import timeit
 
+abdiwoli_setup = '''
+from __main__ import abdiwoli_day4
+'''
+
+def abdiwoli_day4(v): 
+    return True if v == sum([int(i) ** len(str(v))for i in str(v) ]) else False
+
+TEST_CODE_abdiwoli = '''
+example=11
+result = abdiwoli_day4(example)'''
+
 killian_setup = '''
 from __main__ import killian_day4
 '''
@@ -223,6 +234,7 @@ TEST_CODE_Oleksandra_Chmel = '''
 example=11
 result = Oleksandra_Chmel_day4(example)'''
 
+print("Time for abdiwoli test code: " + str(timeit.timeit(stmt=TEST_CODE_abdiwoli, setup=abdiwoli_setup, number=100000)) + " seconds")
 print("Time for killian test code: " + str(timeit.timeit(stmt=TEST_CODE_killian, setup=killian_setup, number=100000)) + " seconds")
 print("Time for ccquiel test code: " + str(timeit.timeit(stmt=TEST_CODE_ccquiel, setup=ccquiel_setup, number=100000)) + " seconds")
 print("Time for vijaya_lakshmi test code: " + str(timeit.timeit(stmt=TEST_CODE_vijaya_lakshmi, setup=vijaya_lakshmi_setup, number=100000)) + " seconds")
